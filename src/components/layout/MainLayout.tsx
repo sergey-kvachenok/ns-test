@@ -32,7 +32,7 @@ const MainLayout: FC<MainLayoutPropsType> = ({ children, title }) => {
         <Typography variant="h3" component="h1" sx={titleStyles}>
           {title}
         </Typography>
-        <Button variant="outlined" onClick={logout} sx={{ maxHeight: '40px' }}>
+        <Button data-testid="logout-button" variant="outlined" onClick={logout} sx={{ maxHeight: '40px' }}>
           Log Out
         </Button>
       </Box>

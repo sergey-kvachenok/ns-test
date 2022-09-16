@@ -66,13 +66,23 @@ const ServerList = () => {
           <TableHead>
             <TableRow>
               <TableCell>
-                <TableSortLabel direction={nameOrder} onClick={sortByName} sx={tableLabelStyles}>
+                <TableSortLabel
+                  direction={nameOrder}
+                  onClick={sortByName}
+                  sx={tableLabelStyles}
+                  data-testid="server-column-label"
+                >
                   Server
                 </TableSortLabel>
               </TableCell>
 
               <TableCell>
-                <TableSortLabel direction={distanceOrder} onClick={sortByDistance} sx={tableLabelStyles}>
+                <TableSortLabel
+                  data-testid="distance-column-label"
+                  direction={distanceOrder}
+                  onClick={sortByDistance}
+                  sx={tableLabelStyles}
+                >
                   Distance
                 </TableSortLabel>
               </TableCell>
@@ -85,7 +95,7 @@ const ServerList = () => {
                 <TableCell component="th" scope="row">
                   {name}
                 </TableCell>
-                <TableCell>{distance}</TableCell>
+                <TableCell data-testid="distance">{distance}</TableCell>
               </TableRow>
             ))}
           </TableBody>
