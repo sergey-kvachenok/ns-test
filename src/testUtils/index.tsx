@@ -7,19 +7,7 @@ import { render } from '@testing-library/react';
 import { ThemeProvider } from '@mui/styles';
 // styles
 import { theme } from '../App';
-import { configureStore } from '@reduxjs/toolkit';
-import { serverApi } from '../store/queries/servers';
-
-const store = configureStore({
-  reducer: {
-    // [serverApi.reducerPath]: serverApi.reducer,
-  },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      immutableCheck: false,
-      serializableCheck: false,
-    }).concat(serverApi.middleware),
-});
+import store from '../store';
 
 const renderWithProviders = (component: ReactElement) => {
   return render(

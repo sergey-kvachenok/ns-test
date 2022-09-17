@@ -31,7 +31,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --verbose",
     "eject": "react-scripts eject",
     "cypress": "cypress open"
   },
@@ -55,6 +55,7 @@
   },
   "devDependencies": {
     "cypress": "^10.8.0",
-    "dotenv": "^16.0.2"
+    "dotenv": "^16.0.2",
+    "jest-watch-typeahead": "^0.6.5"
   }
 }

@@ -1,4 +1,4 @@
-import ServerList from '../pages/ServerList';
+import ServerListPage from '../pages/ServerList';
 
 export const routes = {
   login: '/login',
@@ -8,6 +8,6 @@ export const routes = {
 export const protectedRoutes = [
   {
     path: routes.dashboard,
-    component: <ServerList />,
+    component: <ServerListPage />,
   },
 ];

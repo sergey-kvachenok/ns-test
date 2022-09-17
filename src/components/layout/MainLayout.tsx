@@ -7,7 +7,6 @@ import { routes } from '../../constants/routes';
 // api
 import { useAppDispatch } from '../../hooks/redux';
 import { clearToken } from '../../store/slices/authSlice';
-import { serverApi } from '../../store/queries/servers';
 // styles
 import { containerStyles, titleStyles, rootContainerStyles, childrenContainer } from './MainLayout.styles';
 
@@ -23,7 +22,6 @@ const MainLayout: FC<MainLayoutPropsType> = ({ children, title }) => {
   const logout = async () => {
     dispatch(clearToken());
     navigate(routes.login, { replace: true });
-    dispatch(serverApi.util.resetApiState());
   };
 
   return (

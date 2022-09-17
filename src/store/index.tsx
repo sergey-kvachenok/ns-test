@@ -4,7 +4,6 @@ import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 // api
-import { serverApi } from './queries/servers';
 import authSlice from './slices/authSlice';
 
 const persistConfig = {
@@ -14,7 +13,6 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  [serverApi.reducerPath]: serverApi.reducer,
   auth: authSlice,
 });
 
@@ -27,7 +25,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(serverApi.middleware),
+    }),
   devTools: process.env.NODE_ENV !== 'production',
 });
 
