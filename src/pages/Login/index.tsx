@@ -5,6 +5,7 @@ import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import { Container } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import { useTranslation } from 'react-i18next';
 // components
 import BaseFields from './BaseFields';
 // constants
@@ -25,12 +26,14 @@ const initialValues = {
   password: '',
 };
 
-const validationSchema = yup.object({
-  username: yup.string().required('Please provide a user name. This field is mandatory'),
-  password: yup.string().required('Please provide a password. This field is mandatory'),
-});
+const validationSchema = (t: Function) =>
+  yup.object({
+    username: yup.string().required(t('validation.incorrect-username')),
+    password: yup.string().required(t('validation.incorrect-password')),
+  });
 
 const Login = () => {
+  const { t } = useTranslation(['common']);
   const dispatch = useAppDispatch();
   const classes = useStyles();
   const navigate = useNavigate();
@@ -56,10 +59,10 @@ const Login = () => {
         height: '100vh',
       }}
     >
-      <Formik onSubmit={submitForm} initialValues={initialValues} validationSchema={validationSchema}>
+      <Formik onSubmit={submitForm} initialValues={initialValues} validationSchema={() => validationSchema(t)}>
         <Form className={classes.formContainer}>
           <Typography variant="h1" sx={{ fontSize: 24, fontWeight: 'bold', mb: theme.spacing(4) }}>
-            Login
+            {t('login')}
           </Typography>
 
           <BaseFields />

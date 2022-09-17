@@ -1,0 +1,14 @@
+{
+  "username": "Username",
+  "password": "Password",
+  "login": "Login",
+  "server": "Server",
+  "distance": "Distance",
+  "username-placeholder": "Your username",
+  "password-placeholder": "Your password",
+  "logout": "Log Out",
+  "validation": {
+    "incorrect-username": "Please provide a user name. This field is mandatory",
+    "incorrect-password": "Please provide a password. This field is mandatory"
+  }
+}

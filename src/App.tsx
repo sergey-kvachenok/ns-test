@@ -1,14 +1,19 @@
-import React from 'react';
+// libraries
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import store, { persistor } from './store';
 import { ThemeProvider } from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
-import './App.css';
+// components
 import Login from './pages/Login';
-import { protectedRoutes } from './constants/routes';
 import PrivateRoute from './components/PrivateRoute';
+// constants
+import { protectedRoutes } from './constants/routes';
+// styles
+import './App.css';
+// utils
+import './i18n';
+import store, { persistor } from './store';
 
 export const BREAKPOINTS = {
   xs: 345,

@@ -2,6 +2,7 @@
 import { Box, Button, Typography } from '@mui/material';
 import { FC, ReactElement } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 // constants
 import { routes } from '../../constants/routes';
 // api
@@ -16,6 +17,7 @@ type MainLayoutPropsType = {
 };
 
 const MainLayout: FC<MainLayoutPropsType> = ({ children, title }) => {
+  const { t } = useTranslation(['common']);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -31,7 +33,7 @@ const MainLayout: FC<MainLayoutPropsType> = ({ children, title }) => {
           {title}
         </Typography>
         <Button data-testid="logout-button" variant="outlined" onClick={logout} sx={{ maxHeight: '40px' }}>
-          Log Out
+          {t('logout')}
         </Button>
       </Box>
       <Box sx={childrenContainer}>{children}</Box>

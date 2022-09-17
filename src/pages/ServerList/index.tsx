@@ -1,6 +1,6 @@
 // libraries
 import { useEffect, useState } from 'react';
-import { CircularProgress, Box } from '@mui/material';
+import { CircularProgress, Box, Alert } from '@mui/material';
 // constants
 import { ServerType } from '../../types/login.types';
 // styles
@@ -35,6 +35,10 @@ const ServerListPage = () => {
         <CircularProgress size={50} sx={{ margin: 'auto' }} />
       </Box>
     );
+  }
+
+  if (error) {
+    return <Alert severity="error">{error}</Alert>;
   }
 
   return <ServerList data={data} setData={setData} />;

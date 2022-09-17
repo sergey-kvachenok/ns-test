@@ -1,6 +1,7 @@
 // libraries
 import { FC, useState } from 'react';
 import { Table, TableContainer, TableHead, TableRow, TableCell, TableBody, Paper, TableSortLabel } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 // components
 import MainLayout from '../../components/layout/MainLayout';
 // constants
@@ -17,6 +18,7 @@ type ServerListPropsType = {
 };
 
 const ServerList: FC<ServerListPropsType> = ({ data, setData }) => {
+  const { t } = useTranslation(['common']);
   const [distanceOrder, setDistanceOrder] = useState<OrderType>(ORDER.asc as OrderType);
   const [nameOrder, setNameOrder] = useState<OrderType>(ORDER.asc as OrderType);
 
@@ -48,7 +50,7 @@ const ServerList: FC<ServerListPropsType> = ({ data, setData }) => {
                   sx={tableLabelStyles}
                   data-testid="server-column-label"
                 >
-                  Server
+                  {t('server')}
                 </TableSortLabel>
               </TableCell>
 
@@ -59,7 +61,7 @@ const ServerList: FC<ServerListPropsType> = ({ data, setData }) => {
                   onClick={sortByDistance}
                   sx={tableLabelStyles}
                 >
-                  Distance
+                  {t('distance')}
                 </TableSortLabel>
               </TableCell>
             </TableRow>
