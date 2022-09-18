@@ -14,7 +14,6 @@ export const createServers = (): ApiClient => {
         const response = await instance().get(`servers`);
         return response.data;
       } catch (error: any) {
-        console.log(error?.response);
         throw Error(error?.response?.data?.message || 'Something went wrong');
       }
     },
