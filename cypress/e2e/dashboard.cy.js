@@ -15,7 +15,8 @@ context('Dashboard', () => {
     cy.login();
 
     const logoutButton = cy.get('[data-testid=logout-button]');
-    logoutButton.click();
-    cy.url().should('contain', '/login');
+    logoutButton.click({ force: true });
+    const loginTitle = cy.get('[data-testid="login-form-title"]');
+    loginTitle.should('exist');
   });
 });

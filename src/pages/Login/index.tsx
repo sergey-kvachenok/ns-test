@@ -61,7 +61,11 @@ const Login = () => {
     >
       <Formik onSubmit={submitForm} initialValues={initialValues} validationSchema={() => validationSchema(t)}>
         <Form className={classes.formContainer}>
-          <Typography variant="h1" sx={{ fontSize: 24, fontWeight: 'bold', mb: theme.spacing(4) }}>
+          <Typography
+            data-testid="login-form-title"
+            variant="h1"
+            sx={{ fontSize: 24, fontWeight: 'bold', mb: theme.spacing(4) }}
+          >
             {t('login')}
           </Typography>
 
